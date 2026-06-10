@@ -1,0 +1,17 @@
+<Project Sdk="Aspire.AppHost.Sdk/13.4.3">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>d3dad34f-71c2-43c3-b67d-4c8d9ce5570f</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\WebApi.Azure\WebApi.Azure.csproj" />
+    <ProjectReference Include="..\WebApi.OnPremise\WebApi.OnPremise.csproj" />
+    <ProjectReference Include="..\Yarp.Meetup\Yarp.Meetup.csproj" />
+  </ItemGroup>
+
+</Project>

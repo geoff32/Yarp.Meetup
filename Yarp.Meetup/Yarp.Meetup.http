@@ -1,0 +1,6 @@
+@Yarp.Meetup_HostAddress = http://localhost:5183
+
+GET {{Yarp.Meetup_HostAddress}}/api/home/
+Accept: application/json
+
+###

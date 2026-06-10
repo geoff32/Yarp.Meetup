@@ -1,0 +1,6 @@
+@WebApi.Azure_HostAddress = http://localhost:5008
+
+GET {{WebApi.Azure_HostAddress}}/api/home/
+Accept: application/json
+
+###

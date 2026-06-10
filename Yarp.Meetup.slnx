@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="WebApi.Azure/WebApi.Azure.csproj" />
+  <Project Path="WebApi.OnPremise/WebApi.OnPremise.csproj" />
+  <Project Path="Yarp.Meetup.AppHost/Yarp.Meetup.AppHost.csproj" />
+  <Project Path="Yarp.Meetup.ServiceDefaults/Yarp.Meetup.ServiceDefaults.csproj" />
+  <Project Path="Yarp.Meetup/Yarp.Meetup.csproj" />
+</Solution>
