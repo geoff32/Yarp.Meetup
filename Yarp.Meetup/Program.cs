@@ -1,3 +1,6 @@
+using StackExchange.Redis;
+using Yarp.Meetup;
+
 var builder = WebApplication.CreateBuilder(args);
 
 builder.AddServiceDefaults();
@@ -14,6 +17,16 @@ builder.Services.AddReverseProxy()
 builder.Services
     .AddHttpForwarderWithServiceDiscovery();
 
+builder.Services
+    .AddSingleton<ICloudProvider, CloudProvider>()
+    .AddSingleton<IConnectionMultiplexer>(sp =>
+        {
+            var redisConfig = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("redis"));
+
+            redisConfig.AbortOnConnectFail = false;
+            return ConnectionMultiplexer.Connect(redisConfig);
+        });
+
 var app = builder.Build();
 
 app.MapDefaultEndpoints();
@@ -28,7 +41,7 @@ app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
-app.MapReverseProxy();
+app.MapReverseProxy(pipeline => pipeline.UseMiddleware<AzureSwitchMiddleware>());
 
 app.MapControllers();
 

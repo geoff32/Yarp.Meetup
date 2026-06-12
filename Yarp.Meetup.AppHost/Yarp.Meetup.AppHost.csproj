@@ -9,6 +9,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Redis" Version="13.4.3" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\WebApi.Azure\WebApi.Azure.csproj" />
     <ProjectReference Include="..\WebApi.OnPremise\WebApi.OnPremise.csproj" />
     <ProjectReference Include="..\Yarp.Meetup\Yarp.Meetup.csproj" />
