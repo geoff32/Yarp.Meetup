@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace WebApi.OnPremise.Controllers;
 
 [ApiController]
-[Route("api/home")]
+[Route("api/v1/home")]
 public class HomeController : ControllerBase
 {
     [HttpGet(Name = "GetHome")]
