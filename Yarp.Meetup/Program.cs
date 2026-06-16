@@ -21,7 +21,10 @@ builder.Services
     .AddSingleton<ICloudProvider, CloudProvider>()
     .AddSingleton<IConnectionMultiplexer>(sp =>
         {
-            var redisConfig = ConfigurationOptions.Parse(builder.Configuration.GetConnectionString("redis"));
+            var redisConnectionString = builder.Configuration.GetConnectionString("redis");
+
+            ArgumentException.ThrowIfNullOrEmpty(redisConnectionString);
+            var redisConfig = ConfigurationOptions.Parse(redisConnectionString);
 
             redisConfig.AbortOnConnectFail = false;
             return ConnectionMultiplexer.Connect(redisConfig);
